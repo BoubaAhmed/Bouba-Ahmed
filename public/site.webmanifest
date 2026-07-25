@@ -1,0 +1,15 @@
+{
+  "name": "Ahmed Bouba Portfolio",
+  "short_name": "Ahmed Bouba",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F9F8F6",
+  "theme_color": "#1A2A80",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

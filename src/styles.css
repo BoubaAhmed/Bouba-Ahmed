@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;700;800&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --bg: #f9f8f6;
+  --surface: rgba(239, 233, 227, 0.72);
+  --surface-strong: rgba(249, 248, 246, 0.94);
+  --text: #121826;
+  --muted: #5f6475;
+  --line: rgba(26, 42, 128, 0.12);
+  --line-strong: rgba(26, 42, 128, 0.22);
+  --acid: #1a2a80;
+  --acid-2: #67c090;
+  --deep: #1c352d;
+  --ring: rgba(26, 42, 128, 0.24);
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0f1738;
+  --surface: rgba(20, 31, 72, 0.7);
+  --surface-strong: rgba(18, 29, 68, 0.92);
+  --text: #f9f8f6;
+  --muted: #c9d2ef;
+  --line: rgba(201, 181, 156, 0.12);
+  --line-strong: rgba(201, 181, 156, 0.22);
+  --acid: #c9b59c;
+  --acid-2: #67c090;
+  --deep: #d9cfc7;
+  --ring: rgba(201, 181, 156, 0.28);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 12% 12%, color-mix(in srgb, var(--acid) 9%, transparent), transparent 26rem),
+    radial-gradient(circle at 88% 10%, color-mix(in srgb, var(--acid-2) 11%, transparent), transparent 24rem),
+    linear-gradient(180deg, var(--bg), var(--bg));
+  color: var(--text);
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[dir="rtl"] body {
+  font-family: "Noto Sans Arabic", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: "Josefin Sans", sans-serif;
+  letter-spacing: -0.035em;
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] h5,
+html[dir="rtl"] h6 {
+  font-family: "Noto Sans Arabic", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: var(--acid);
+  color: #fff;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.font-mono,
+code,
+pre {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.site-grid {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.1;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--acid) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--acid) 7%, transparent) 1px, transparent 1px);
+  background-size: 84px 84px;
+  mask-image: radial-gradient(circle at center, black, transparent 74%);
+}
+
+.site-orb {
+  pointer-events: none;
+  position: fixed;
+  z-index: 0;
+  border-radius: 999px;
+  filter: blur(18px);
+  opacity: 0.36;
+}
+
+.site-orb-a {
+  left: -8rem;
+  top: 5rem;
+  height: 22rem;
+  width: 22rem;
+  background: radial-gradient(circle, color-mix(in srgb, var(--acid) 18%, transparent), transparent 68%);
+}
+
+.site-orb-b {
+  right: -9rem;
+  bottom: 5rem;
+  height: 24rem;
+  width: 24rem;
+  background: radial-gradient(circle, color-mix(in srgb, var(--acid-2) 18%, transparent), transparent 68%);
+}
+
+.section-shell {
+  margin-inline: auto;
+  max-width: 78rem;
+  padding-top: clamp(4.5rem, 8vw, 6.2rem);
+}
+
+.panel-rich,
+.project-card,
+.contact-card {
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.08)),
+    var(--surface);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 18px 50px -36px rgba(10, 16, 38, 0.34);
+  backdrop-filter: blur(14px);
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 0.75rem;
+  padding: 0.52rem 1.15rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: transform 160ms ease, border-color 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.btn-primary {
+  background: var(--acid);
+  color: #fff;
+}
+
+.btn-secondary {
+  border: 1px solid var(--line);
+  background: var(--surface-strong);
+  color: var(--text);
+}
+
+.btn-ghost {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-ghost:hover {
+  transform: translateY(-1px);
+  border-color: var(--line-strong);
+}
+
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--surface-strong) 88%, transparent), transparent);
+}
+
+.logo-mark-core {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  color: var(--acid);
+}
+
+.tech-background {
+  position: absolute;
+  color: color-mix(in srgb, var(--acid) 72%, var(--acid-2));
+  opacity: 0.34;
+  animation: float 11s ease-in-out infinite;
+}
+
+.progress-glow {
+  box-shadow: 0 0 18px color-mix(in srgb, var(--acid) 45%, transparent);
+}
+
+.icon-tile {
+  display: inline-flex;
+  height: 2.8rem;
+  width: 2.8rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface-strong) 88%, transparent);
+  color: var(--acid);
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.75rem;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
+  padding: 0.45rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.project-card {
+  display: flex;
+  min-height: 19rem;
+  flex-direction: column;
+  gap: 1.25rem;
+  border-radius: 0.75rem;
+  padding: 1.4rem;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-12px) translateX(8px);
+  }
+  50% {
+    transform: translateY(-4px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(10px) translateX(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
