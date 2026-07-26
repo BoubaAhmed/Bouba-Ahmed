@@ -34,6 +34,11 @@ export type ProfileMeta = {
   tagline: string;
   summary: string;
   availability: string;
+  languages: readonly {
+    name: string;
+    level: string;
+  }[];
+  strengths: readonly string[];
 };
 
 export type EducationItem = {
@@ -68,11 +73,17 @@ export const profile: ProfileMeta = {
   github: "https://github.com/BoubaAhmed",
   linkedin: "https://www.linkedin.com/in/ahmed-bouba-861b91231/",
   portrait: "/media/portrait.png",
-  tagline: "Full-stack and AI developer building useful products with clean execution.",
+  tagline: "Full-stack and AI developer turning product ideas into reliable, polished software.",
   summary:
-    "Master's graduate in Intelligent Systems with hands-on experience across Django, React, AI workflows, Java desktop software, databases, Docker, and production-minded delivery.",
+    "I build practical web platforms, AI-assisted workflows, and data-driven applications with a strong focus on clean architecture, usable interfaces, and production delivery. My background in Intelligent Systems helps me connect frontend quality, backend reliability, and machine learning features into products that solve real problems.",
   availability:
     "Open to full-time roles, freelance work, and product teams that need reliable engineering with an AI edge.",
+  languages: [
+    { name: "Arabic", level: "Native" },
+    { name: "French", level: "Professional" },
+    { name: "English", level: "Professional" },
+  ],
+  strengths: ["Full-stack delivery", "AI product thinking", "Clean UI execution", "Production deployment"],
 };
 
 export const resumeLinks = [
@@ -528,9 +539,15 @@ export const localizedContent = {
       location: "Khemisset, Maroc",
       tagline: "Developpeur full-stack et IA qui cree des produits utiles avec une execution propre.",
       summary:
-        "Diplome de master en Systemes Intelligents avec une experience pratique sur Django, React, workflows IA, logiciels desktop Java, bases de donnees, Docker et livraison orientee production.",
+        "Je developpe des plateformes web, des workflows assistes par IA et des applications orientees donnees avec une attention forte a l'architecture, l'experience utilisateur et la livraison en production. Mon parcours en Systemes Intelligents me permet de relier frontend, backend et fonctionnalites IA dans des produits utiles.",
       availability:
         "Ouvert aux postes a temps plein, au freelance et aux equipes produit qui ont besoin d'une engineering fiable avec une dimension IA.",
+      languages: [
+        { name: "Arabe", level: "Natif" },
+        { name: "Francais", level: "Professionnel" },
+        { name: "Anglais", level: "Professionnel" },
+      ],
+      strengths: ["Livraison full-stack", "Vision produit IA", "UI propre", "Deploiement production"],
     },
     featuredProjects: featuredProjectsFr,
     homeProjects: featuredProjectsFr,

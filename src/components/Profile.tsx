@@ -1,4 +1,4 @@
-import { GraduationCap, MapPin, Sparkles } from "lucide-react";
+import { CheckCircle2, GraduationCap, Languages, MapPin, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import type { EducationItem, ProfileMeta } from "../content/site";
 
@@ -24,82 +24,74 @@ export function Profile({ educationItems, profile }: ProfileProps) {
         </p>
       </div>
 
-      <div className="mt-12 grid gap-6 lg:grid-cols-[0.82fr_1.18fr]">
-        <article className="relative rounded-lg">
-          <div className="relative rounded-lg border border-[color:color-mix(in_srgb,var(--line)_70%,transparent)] bg-[color:color-mix(in_srgb,var(--surface-strong)_58%,transparent)] p-5 text-center shadow-[0_20px_45px_-34px_rgba(3,8,24,0.28)] backdrop-blur-xl md:text-left">
-            <div className="flex flex-col items-center gap-5 md:flex-row md:items-center">
-              <div className="shrink-0">
-                <div className="rounded-full bg-[linear-gradient(135deg,color-mix(in_srgb,var(--acid)_88%,white_12%),color-mix(in_srgb,var(--acid-2)_88%,white_12%))] p-1.5 shadow-[0_18px_34px_-22px_color-mix(in_srgb,var(--acid)_40%,transparent)]">
-                  <img
-                    src={profile.portrait}
-                    alt={profile.name}
-                    className="h-24 w-24 rounded-full border-4 border-[color:color-mix(in_srgb,var(--surface-strong)_76%,white_24%)] object-cover object-top md:h-28 md:w-28"
-                  />
-                </div>
-              </div>
-
-              <div className="min-w-0 space-y-2">
+      <div className="relative mt-12 overflow-hidden">
+        <div className="relative grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <article className="rounded-lg border border-[color:color-mix(in_srgb,var(--line)_56%,transparent)] bg-[color:color-mix(in_srgb,var(--surface)_18%,transparent)] p-4 backdrop-blur-sm">
+            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+              <div className="space-y-2">
                 <h3 className="text-3xl font-semibold tracking-[-0.05em] text-[color:color-mix(in_srgb,var(--text)_84%,var(--acid)_16%)] md:text-4xl">
                   {profile.name}
                 </h3>
-                <p className="flex items-center justify-center gap-2 text-base text-[var(--muted)] md:justify-start">
-                  <Sparkles className="h-4 w-4 text-[var(--acid)]" />
+                <p className="flex items-center gap-2 text-base font-medium text-[var(--acid)]">
+                  <Sparkles className="h-4 w-4" />
                   {profile.role}
                 </p>
-                <div className="flex items-center justify-center gap-2 text-sm text-[var(--muted)] md:justify-start">
+                <p className="flex items-center gap-2 text-sm text-[var(--muted)]">
                   <MapPin className="h-4 w-4 text-[var(--acid-2)]" />
                   {profile.location}
-                </div>
+                </p>
               </div>
+              <span className="inline-flex w-fit items-center gap-2 rounded-lg border border-[color:color-mix(in_srgb,var(--deep)_34%,var(--line))] bg-[color:color-mix(in_srgb,var(--deep)_8%,transparent)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--deep)]">
+                <CheckCircle2 className="h-3.5 w-3.5" />
+                {t("sections.profile.availability")}
+              </span>
             </div>
 
-            <p className="mt-5 border-t border-[color:color-mix(in_srgb,var(--line)_62%,transparent)] pt-1 text-sm leading-7 text-[var(--muted)]">
-              {profile.tagline}
-            </p>
-            <p className="pt-4 text-sm leading-7 text-[var(--muted)]">{profile.summary}</p>
-          </div>
-        </article>
+            <div className="mt-6 space-y-4">
+              <p className="text-lg font-semibold leading-8 text-[var(--text)]">{profile.tagline}</p>
+              <p className="text-base leading-8 text-[var(--muted)]">{profile.summary}</p>
+            </div>
+          </article>
 
-        <div className="grid gap-5">
-          <article className="rounded-lg p-5 md:p-6">
-            <div className="flex items-center gap-3">
-              <span className="icon-tile bg-[color:color-mix(in_srgb,var(--acid)_18%,transparent)] text-[var(--acid)]">
+          <article className="rounded-lg border border-[color:color-mix(in_srgb,var(--line)_56%,transparent)] bg-[color:color-mix(in_srgb,var(--surface)_16%,transparent)] p-4 backdrop-blur-sm">
+            <div className="mb-5 flex items-center gap-3">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-[color:color-mix(in_srgb,var(--acid)_26%,var(--line))] bg-[color:color-mix(in_srgb,var(--acid)_10%,transparent)] text-[var(--acid)]">
                 <GraduationCap className="h-5 w-5" />
               </span>
-              <h3 className="text-lg font-semibold text-[color:color-mix(in_srgb,var(--text)_80%,var(--acid)_20%)]">
+              <h3 className="text-xl font-semibold tracking-[-0.04em] text-[var(--text)]">
                 {t("sections.profile.education")}
               </h3>
             </div>
 
-            <div className="mt-4 grid gap-3">
-              {educationItems.map((item) => (
-                <div
-                  key={`${item.degree}-${item.period}`}
-                  className="rounded-lg border border-[color:color-mix(in_srgb,var(--line)_68%,transparent)] bg-[color:color-mix(in_srgb,var(--surface-strong)_54%,transparent)] p-4 shadow-[0_14px_30px_-24px_rgba(3,8,24,0.24)]"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <p className="font-medium text-[var(--text)]">{item.degree}</p>
-                      <p className="text-sm text-[var(--muted)]">{item.institution}</p>
-                    </div>
-                    <p className="shrink-0 rounded-full border border-[color:color-mix(in_srgb,var(--line)_66%,#0ea5e9_34%)] px-2.5 py-1 text-xs font-medium text-[var(--acid-2)]">
-                      {item.period}
-                    </p>
+            <div className="grid gap-3">
+            {educationItems.map((item) => (
+              <div
+                key={`${item.degree}-${item.period}`}
+                className="p-2"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="font-medium text-[var(--text)]">{item.degree}</p>
+                    <p className="text-sm text-[var(--muted)]">{item.institution}</p>
                   </div>
-
-                  <ul className="mt-3 space-y-2 text-sm leading-7 text-[var(--muted)]">
-                    {item.details.map((detail) => (
-                      <li key={detail} className="flex gap-2">
-                        <span className="pt-2 text-[var(--acid)]">-</span>
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="shrink-0 rounded-full border border-[color:color-mix(in_srgb,var(--line)_66%,#0ea5e9_34%)] px-2.5 py-1 text-xs font-medium text-[var(--acid-2)]">
+                    {item.period}
+                  </p>
                 </div>
-              ))}
+
+                <ul className="mt-3 space-y-2 text-sm leading-7 text-[var(--muted)]">
+                  {item.details.map((detail) => (
+                    <li key={detail} className="flex gap-2">
+                      <span className="pt-2 text-[var(--acid)]">-</span>
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
             </div>
           </article>
-        </div>
+          </div>
       </div>
 
     </section>

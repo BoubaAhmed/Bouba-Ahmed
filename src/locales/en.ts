@@ -48,6 +48,7 @@ export const en = {
       strengths: "Strengths",
       languages: "Languages",
       certifications: "Certifications",
+      availability: "Available",
     },
     journey: {
       eyebrow: "Journey",

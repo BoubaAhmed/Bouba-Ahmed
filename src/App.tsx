@@ -176,7 +176,7 @@ function App() {
         />
       ) : (
         <main className="relative z-10 px-4 pb-20 pt-20">
-          <Hero email={content.profile.email} onNavigate={navigateTo} />
+          <Hero profile={content.profile} onNavigate={navigateTo} />
           <Profile
             educationItems={content.educationItems}
             profile={content.profile}

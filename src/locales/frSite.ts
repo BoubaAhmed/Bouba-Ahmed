@@ -48,6 +48,7 @@ export const frSite = {
       strengths: "Forces",
       languages: "Langues",
       certifications: "Certifications",
+      availability: "Disponible",
     },
     journey: {
       eyebrow: "Parcours",
