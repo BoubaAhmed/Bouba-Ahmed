@@ -3,12 +3,22 @@ type ScrollProgressProps = {
 };
 
 export function ScrollProgress({ progress }: ScrollProgressProps) {
+  const clampedProgress = Math.max(0, Math.min(100, progress));
+  const isActive = clampedProgress > 1;
+
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-0 z-[70] h-[3px] bg-transparent">
+    <div className="pointer-events-none fixed inset-x-0 top-0 z-[70]">
+      <div className="scroll-progress-rail" />
       <div
-        className="progress-glow h-full bg-[linear-gradient(90deg,var(--acid),var(--acid-2))] transition-[width] duration-150"
-        style={{ width: `${progress}%` }}
+        className="progress-glow scroll-progress-fill"
+        style={{ transform: `scaleX(${clampedProgress / 100})` }}
       />
+      <div
+        className={`scroll-progress-badge ${isActive ? "scroll-progress-badge--visible" : ""}`}
+        style={{ left: `clamp(3rem, ${clampedProgress}%, calc(100% - 3rem))` }}
+      >
+        {Math.round(clampedProgress)}%
+      </div>
     </div>
   );
 }

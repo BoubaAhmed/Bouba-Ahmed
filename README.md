@@ -5,10 +5,9 @@ Production-ready portfolio website built as a separate project with:
 - React + Vite
 - Tailwind CSS
 - Lucide icons
-- Framer Motion
 - Google Fonts
 - Dark/light mode
-- i18n in English, French, and Arabic
+- i18n in English and French
 - Static deployment ready for Vercel
 
 ## Development
@@ -33,4 +32,3 @@ This project is configured for static hosting on Vercel.
 - Output directory: `dist`
 
 `vercel.json` includes an SPA rewrite to `index.html`.
-"# Bouba-Ahmed" 

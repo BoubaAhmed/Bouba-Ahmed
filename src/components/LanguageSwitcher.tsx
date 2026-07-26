@@ -14,9 +14,8 @@ const languages: Array<{
   label: string;
   color: string;
 }> = [
-  { code: "en", flag: "🇬🇧", label: "English", color: "#450693" },
-  { code: "fr", flag: "🇫🇷", label: "Francais", color: "#215E61" },
-  { code: "ar", flag: "🇲🇦", label: "Arabic", color: "#306D29" },
+  { code: "en", flag: "GB", label: "English", color: "#7c3aed" },
+  { code: "fr", flag: "FR", label: "Francais", color: "#0ea5e9" },
 ];
 
 export function LanguageSwitcher({
@@ -40,43 +39,45 @@ export function LanguageSwitcher({
 
   return (
     <div ref={rootRef} className="relative">
-      <button
-        type="button"
-        onClick={() => setOpen((currentState) => !currentState)}
-        className="inline-flex h-10 items-center gap-2 rounded-xl border border-[color:color-mix(in_srgb,#9CB080_65%,var(--line))] bg-[linear-gradient(135deg,color-mix(in_srgb,#9CB080_16%,white),color-mix(in_srgb,#215E61_10%,white))] px-3 text-sm font-medium text-[var(--text)] transition hover:border-[#306D29] hover:text-[#215E61] dark:bg-[linear-gradient(135deg,color-mix(in_srgb,#450693_28%,transparent),color-mix(in_srgb,#215E61_22%,transparent))]"
+      <a
+        href="#language"
+        onClick={(event) => {
+          event.preventDefault();
+          setOpen((currentState) => !currentState);
+        }}
+        className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-[var(--line)] px-3 py-2 text-sm font-medium text-[var(--muted)] transition hover:border-[var(--acid)] hover:text-[var(--acid)]"
       >
-        <span className="text-base leading-none">{current.flag}</span>
+        <span className="text-[0.7rem] font-semibold leading-none tracking-[0.18em]">{current.flag}</span>
         <span className="hidden md:block">{current.label}</span>
-        <ChevronDown
-          className={cn("h-4 w-4 text-[#215E61] transition-transform dark:text-[#9CB080]", open && "rotate-180")}
-        />
-      </button>
+        <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", open && "rotate-180")} />
+      </a>
 
       {open ? (
-        <div className="absolute right-0 z-30 mt-2 min-w-44 overflow-hidden rounded-xl border border-[color:color-mix(in_srgb,#9CB080_65%,var(--line))] bg-[var(--surface-strong)] p-2 shadow-[0_18px_50px_-28px_rgba(10,16,38,0.28)]">
+        <div className="absolute right-0 z-30 mt-2 min-w-44 overflow-hidden rounded-lg border border-[color:color-mix(in_srgb,#c4b5fd_65%,var(--line))] bg-[var(--surface-strong)] p-2 shadow-[0_18px_50px_-28px_rgba(10,16,38,0.28)]">
           {languages.map((language) => (
-            <button
+            <a
               key={language.code}
-              type="button"
-              onClick={() => {
+              href={`#lang-${language.code}`}
+              onClick={(event) => {
+                event.preventDefault();
                 setOpen(false);
                 startTransition(() => onChangeLanguage(language.code));
               }}
               className={cn(
-                "flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-sm transition",
+                "flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2.5 text-left text-sm transition",
                 currentLanguage === language.code
-                  ? "bg-[color-mix(in_srgb,#9CB080_18%,white)] text-[var(--text)] dark:bg-[color-mix(in_srgb,#450693_18%,transparent)]"
-                  : "text-[var(--muted)] hover:bg-[color-mix(in_srgb,#9CB080_12%,white)] hover:text-[var(--text)] dark:hover:bg-[color-mix(in_srgb,#215E61_16%,transparent)]",
+                  ? "bg-[color-mix(in_srgb,#c4b5fd_18%,white)] text-[var(--text)] dark:bg-[color-mix(in_srgb,#7c3aed_18%,transparent)]"
+                  : "text-[var(--muted)] hover:bg-[color-mix(in_srgb,#c4b5fd_12%,white)] hover:text-[var(--text)] dark:hover:bg-[color-mix(in_srgb,#0ea5e9_16%,transparent)]",
               )}
             >
               <span className="flex items-center gap-2">
-                <span className="text-base leading-none">{language.flag}</span>
+                <span className="text-[0.7rem] font-semibold leading-none tracking-[0.18em]">{language.flag}</span>
                 <span>{language.label}</span>
               </span>
               {currentLanguage === language.code ? (
                 <Check className="h-4 w-4" style={{ color: language.color }} />
               ) : null}
-            </button>
+            </a>
           ))}
         </div>
       ) : null}

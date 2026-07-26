@@ -1,6 +1,5 @@
 import { ArrowLeft, ArrowUpRight, Code2 } from "lucide-react";
 import type { ProjectMeta } from "../content/site";
-import { SectionIntro } from "./SectionIntro";
 
 type ProjectDetailPageProps = {
   project?: ProjectMeta;
@@ -11,6 +10,7 @@ type ProjectDetailPageProps = {
   buildLabel: string;
   highlightsLabel: string;
   stackLabel: string;
+  screenshotsLabel: string;
   notFoundLabel: string;
   onBack: () => void;
 };
@@ -24,13 +24,14 @@ export function ProjectDetailPage({
   buildLabel,
   highlightsLabel,
   stackLabel,
+  screenshotsLabel,
   notFoundLabel,
   onBack,
 }: ProjectDetailPageProps) {
   if (!project) {
     return (
-      <main className="relative z-10 px-4 pb-20">
-        <section className="mx-auto max-w-4xl pb-16 pt-10 lg:pt-16">
+      <main className="relative z-10 px-4 pb-20 pt-20">
+        <section className="mx-auto max-w-6xl pb-16 pt-10 lg:pt-16">
           <button
             type="button"
             onClick={onBack}
@@ -48,8 +49,8 @@ export function ProjectDetailPage({
   }
 
   return (
-    <main className="relative z-10 px-4 pb-20">
-      <section className="mx-auto max-w-5xl pb-16 pt-10 lg:pt-16">
+    <main className="relative z-10 px-4 pb-20 pt-20">
+      <section className="mx-auto max-w-6xl pb-16 pt-10 lg:pt-16">
         <button
           type="button"
           onClick={onBack}
@@ -59,13 +60,31 @@ export function ProjectDetailPage({
           {backLabel}
         </button>
 
-        <SectionIntro title={project.title} description={project.detail} />
+        <div className="mx-auto max-w-3xl space-y-3 text-center">
+          <h2 className="mx-auto max-w-4xl text-4xl font-bold leading-[1.04] tracking-[-0.045em] text-[var(--text)] md:text-5xl">
+            {project.title}
+          </h2>
+          <p className="mx-auto max-w-2xl text-base leading-8 text-[var(--muted)] md:text-lg">{project.detail}</p>
+        </div>
 
         <div className="mt-6 flex flex-wrap justify-center gap-2 text-sm text-[var(--muted)]">
           <span>{project.year}</span>
           <span>/</span>
           <span>{project.category}</span>
         </div>
+
+        {project.screenshots.length > 0 ? (
+          <section className="project-detail-gallery mt-10" aria-label={screenshotsLabel}>
+            <img src={project.screenshots[0]} alt={project.title} className="project-detail-gallery-main" />
+            {project.screenshots.length > 1 ? (
+              <div className="project-detail-gallery-grid">
+                {project.screenshots.slice(1).map((screenshot, index) => (
+                  <img key={screenshot} src={screenshot} alt={`${project.title} ${index + 2}`} />
+                ))}
+              </div>
+            ) : null}
+          </section>
+        ) : null}
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="space-y-5">

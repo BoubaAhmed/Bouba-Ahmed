@@ -1,4 +1,5 @@
 import { ArrowUp } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 type BackToTopProps = {
   visible: boolean;
@@ -6,6 +7,8 @@ type BackToTopProps = {
 };
 
 export function BackToTop({ visible, onClick }: BackToTopProps) {
+  const { t } = useTranslation();
+
   if (!visible) {
     return null;
   }
@@ -14,7 +17,7 @@ export function BackToTop({ visible, onClick }: BackToTopProps) {
     <button
       type="button"
       onClick={onClick}
-      aria-label="Back to top"
+      aria-label={t("controls.backToTop")}
       className="fixed bottom-6 right-6 z-50 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--acid)] text-white shadow-[0_18px_50px_-20px_color-mix(in_srgb,var(--acid)_70%,black)] transition hover:-translate-y-1 hover:bg-[var(--acid-2)]"
     >
       <ArrowUp className="h-5 w-5" />

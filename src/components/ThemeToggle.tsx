@@ -15,9 +15,9 @@ export function ThemeToggle({ theme, label, onToggle }: ThemeToggleProps) {
       type="button"
       onClick={onToggle}
       aria-label={label}
-      className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--line)] bg-[var(--surface-strong)] text-[var(--text)] transition hover:border-[var(--acid)] hover:text-[var(--acid)]"
+      className="inline-flex py-2.5 gap-2 cursor-pointer items-center justify-center rounded-lg border border-[var(--line)] px-3 text-sm font-medium text-[var(--muted)] transition hover:border-[var(--acid)] hover:text-[var(--acid)]"
     >
-      {isDark ? <SunMedium className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+      {isDark ? <SunMedium className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
     </button>
   );
 }
