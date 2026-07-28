@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Electronics project cover</title>
+  <desc id="desc">Default cover for electronics and IoT projects.</desc>
+  <rect width="960" height="600" rx="34" fill="#ecfeff"/>
+  <rect x="286" y="146" width="388" height="308" rx="34" fill="#ffffff" stroke="#0891b2" stroke-width="10"/>
+  <rect x="346" y="206" width="268" height="188" rx="20" fill="#0f172a" opacity="0.08"/>
+  <path d="M382 300h196M480 214v172" stroke="#16a34a" stroke-width="14" stroke-linecap="round"/>
+  <g stroke="#2563eb" stroke-width="10" stroke-linecap="round">
+    <path d="M286 218h-78"/>
+    <path d="M286 300h-98"/>
+    <path d="M286 382h-78"/>
+    <path d="M674 218h78"/>
+    <path d="M674 300h98"/>
+    <path d="M674 382h78"/>
+  </g>
+</svg>

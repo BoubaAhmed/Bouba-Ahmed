@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">AI project cover</title>
+  <desc id="desc">Default cover for artificial intelligence projects.</desc>
+  <rect width="960" height="600" rx="34" fill="#f8fafc"/>
+  <circle cx="480" cy="300" r="172" fill="#2563eb" opacity="0.12"/>
+  <circle cx="480" cy="300" r="106" fill="#7c3aed" opacity="0.14"/>
+  <g fill="none" stroke="#2563eb" stroke-width="12" stroke-linecap="round">
+    <path d="M348 300h264"/>
+    <path d="M480 168v264"/>
+    <path d="M388 208l184 184"/>
+    <path d="M572 208L388 392"/>
+  </g>
+  <g fill="#0891b2">
+    <circle cx="348" cy="300" r="22"/>
+    <circle cx="612" cy="300" r="22"/>
+    <circle cx="480" cy="168" r="22"/>
+    <circle cx="480" cy="432" r="22"/>
+    <circle cx="388" cy="208" r="18"/>
+    <circle cx="572" cy="392" r="18"/>
+    <circle cx="572" cy="208" r="18"/>
+    <circle cx="388" cy="392" r="18"/>
+  </g>
+</svg>

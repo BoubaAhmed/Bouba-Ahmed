@@ -8,6 +8,7 @@ import {
   Database,
   Languages,
   Lamp,
+  Layers3,
   Layout,
   Lightbulb,
   Puzzle,
@@ -18,6 +19,7 @@ import {
   Waypoints,
   Wrench,
 } from "lucide-react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { LucideIcon } from "lucide-react";
 import type { SimpleIcon } from "simple-icons";
@@ -127,11 +129,13 @@ function SkillVisual({ skillName }: { skillName: string }) {
 
 export function Skills() {
   const { t } = useTranslation();
+  const [activeCategory, setActiveCategory] = useState<SkillCategoryKey>("frontend");
 
   return (
     <section id="stack" className="mx-auto max-w-6xl pt-[clamp(4.5rem,8vw,6.2rem)]">
       <div className="mx-auto max-w-4xl space-y-3 text-center">
-        <p className="inline-flex rounded-full border border-[color:color-mix(in_srgb,var(--acid)_32%,var(--line))] bg-[color:color-mix(in_srgb,var(--acid)_10%,transparent)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--acid)]">
+        <p className="inline-flex items-center gap-2 rounded-full border border-[color:color-mix(in_srgb,var(--acid)_32%,var(--line))] bg-[color:color-mix(in_srgb,var(--acid)_10%,transparent)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--acid)]">
+          <Layers3 className="h-3.5 w-3.5" aria-hidden="true" />
           {t("sections.stack.eyebrow")}
         </p>
         <h2 className="mx-auto max-w-4xl text-4xl font-bold leading-[1.04] tracking-[-0.045em] text-[var(--text)] md:text-5xl">
@@ -143,39 +147,38 @@ export function Skills() {
       </div>
 
       <div className="skills-simple mt-12">
-        <div className="skills-simple-header">
-          <div>
-            <p className="skills-simple-kicker">{t("sections.stack.toolkit")}</p>
-            <p className="skills-simple-copy">{t("sections.stack.toolkitDescription")}</p>
+        <div className="skills-tabs-wrap">
+          <div className="skills-tabs no-scrollbar" role="tablist" aria-label={t("sections.stack.title")}>
+            {skillCategories.map(({ key, icon: Icon }) => {
+              const isActive = activeCategory === key;
+
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  className={`skills-tab ${isActive ? "skills-tab--active" : ""}`}
+                  onClick={() => setActiveCategory(key)}
+                >
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                  {t(`sections.stack.categories.${key}.label`)}
+                </button>
+              );
+            })}
           </div>
-          <Code2 className="hidden h-5 w-5 text-[var(--acid)] sm:block" aria-hidden="true" />
         </div>
 
-        <div className="skills-simple-grid">
-          {skillCategories.map(({ key, icon: Icon }) => (
-            <article key={key} className="skills-simple-card">
-              <div className="skills-simple-card-head">
-                <span className="skills-simple-card-icon">
-                  <Icon className="h-4 w-4" />
-                </span>
-                <div>
-                  <h3 className="skills-simple-card-title">{t(`sections.stack.categories.${key}.label`)}</h3>
-                  <p className="skills-simple-card-copy">{t(`sections.stack.categories.${key}.description`)}</p>
-                </div>
-              </div>
-
-              <div className="skills-simple-list">
-                {skillsData[key].map((skill) => (
-                  <span key={`${key}-${skill.name}`} className="skills-simple-skill">
-                    <SkillVisual skillName={skill.name} />
-                    <span>{skill.name}</span>
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
-
+        <article className="skills-panel">
+          <div className="skills-simple-tags">
+            {skillsData[activeCategory].map((skill) => (
+              <span key={`${activeCategory}-${skill.name}`} className="skills-simple-tag">
+                <SkillVisual skillName={skill.name} />
+                <span>{skill.name}</span>
+              </span>
+            ))}
+          </div>
+        </article>
       </div>
     </section>
   );

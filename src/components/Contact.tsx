@@ -1,10 +1,14 @@
-import { Code2, ExternalLink, Handshake, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { siGithub } from "simple-icons";
 import type { ProfileMeta } from "../content/site";
 
 type ContactProps = {
   profile: ProfileMeta;
 };
+
+const linkedinPath =
+  "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z";
 
 export function Contact({ profile }: ContactProps) {
   const { t } = useTranslation();
@@ -13,7 +17,8 @@ export function Contact({ profile }: ContactProps) {
   return (
     <section id="contact" className="mx-auto max-w-6xl pt-[clamp(4.5rem,8vw,6.2rem)]">
       <div className="mx-auto max-w-4xl space-y-3 text-center">
-        <p className="inline-flex rounded-full border border-[color:color-mix(in_srgb,var(--deep)_34%,var(--line))] bg-[color:color-mix(in_srgb,var(--deep)_10%,transparent)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--deep)]">
+        <p className="inline-flex items-center gap-2 rounded-full border border-[color:color-mix(in_srgb,var(--deep)_34%,var(--line))] bg-[color:color-mix(in_srgb,var(--deep)_10%,transparent)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--deep)]">
+          <Mail className="h-3.5 w-3.5" aria-hidden="true" />
           {t("sections.contact.eyebrow")}
         </p>
         <h2 className="mx-auto max-w-4xl text-4xl font-bold leading-[1.04] tracking-[-0.045em] text-[var(--text)] md:text-5xl">
@@ -24,89 +29,68 @@ export function Contact({ profile }: ContactProps) {
         </p>
       </div>
 
-      <div className="contact-hub-grid mt-12">
-        <div className="grid gap-4">
-          <article className="panel-rich rounded-[1.45rem] p-6 md:p-7">
-            <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-[var(--line)] bg-[color-mix(in_srgb,var(--surface-strong)_88%,transparent)] text-[var(--acid)]">
-              <Handshake className="h-5 w-5" />
-            </div>
-            <h3 className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-[var(--text)]">
-              {t("sections.contact.cardTitle")}
-            </h3>
-            <p className="mt-4 text-base leading-8 text-[var(--muted)]">{t("sections.contact.cardDescription")}</p>
-          </article>
-
-          <div className="grid gap-4">
-            <a href={`mailto:${profile.email}`} className="panel-rich contact-hub-card rounded-[1.3rem] p-4 md:p-5">
-              <span className="contact-hub-icon">
-                <Mail className="h-4 w-4" />
+      <div className="contact-simple mt-12">
+        <div className="contact-simple-intro">
+          <h3 className="contact-simple-title">{t("sections.contact.cardTitle")}</h3>
+          <p className="contact-simple-copy">{t("sections.contact.cardDescription")}</p>
+          <div className="contact-availability">
+            <span className="contact-availability-dot" />
+            <span>{t("sections.contact.availableNow")}</span>
+          </div>
+          <div className="contact-tags">
+            {tags.map((item) => (
+              <span key={item} className="contact-tag">
+                {item}
               </span>
-              <div className="flex-1">
-                <p className="contact-hub-label">{t("sections.contact.email")}</p>
-                <p className="contact-hub-value">{profile.email}</p>
-              </div>
-            </a>
-
-            <a href={`tel:${profile.phone.replaceAll(" ", "")}`} className="panel-rich contact-hub-card rounded-[1.3rem] p-4 md:p-5">
-              <span className="contact-hub-icon">
-                <Phone className="h-4 w-4" />
-              </span>
-              <div className="flex-1">
-                <p className="contact-hub-label">{t("sections.contact.phone")}</p>
-                <p className="contact-hub-value">{profile.phone}</p>
-              </div>
-            </a>
-
-            <div className="panel-rich contact-hub-card rounded-[1.3rem] p-4 md:p-5">
-              <span className="contact-hub-icon">
-                <MapPin className="h-4 w-4" />
-              </span>
-              <div className="flex-1">
-                <p className="contact-hub-label">{t("sections.contact.location")}</p>
-                <p className="contact-hub-value">{profile.location}</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        <div className="grid gap-4">
-          <article className="panel-rich rounded-[1.45rem] p-6 md:p-7">
-            <div className="flex items-center justify-between gap-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
-                {t("sections.contact.social")}
-              </p>
-              <ExternalLink className="h-4 w-4 text-[var(--acid)]" />
+        <div className="contact-simple-list">
+          <a href={`mailto:${profile.email}`} className="contact-simple-row">
+            <span className="contact-simple-icon">
+              <Mail className="h-4 w-4" aria-hidden="true" />
+            </span>
+            <div className="min-w-0">
+              <p className="contact-simple-label">{t("sections.contact.email")}</p>
+              <p className="contact-simple-value">{profile.email}</p>
             </div>
-            <div className="mt-4 flex flex-wrap gap-3">
-              <a href={profile.github} target="_blank" rel="noreferrer" className="contact-social-link">
-                <Code2 className="h-4 w-4" />
-                <span>GitHub</span>
-              </a>
-              <a href={profile.linkedin} target="_blank" rel="noreferrer" className="contact-social-link">
-                <ExternalLink className="h-4 w-4" />
-                <span>LinkedIn</span>
-              </a>
-            </div>
-          </article>
+          </a>
 
-          <article className="panel-rich rounded-[1.45rem] p-6 md:p-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
-              {t("sections.contact.availability")}
-            </p>
-            <p className="mt-3 text-sm leading-7 text-[var(--text)]">{t("sections.contact.availabilityText")}</p>
-            <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-[color-mix(in_srgb,var(--surface-strong)_82%,transparent)] px-3 py-2 text-sm text-[var(--muted)]">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#22c55e] shadow-[0_0_12px_rgba(34,197,94,0.6)]" />
-              {t("sections.contact.availableNow")}
+          <a href={`tel:${profile.phone.replaceAll(" ", "")}`} className="contact-simple-row">
+            <span className="contact-simple-icon">
+              <Phone className="h-4 w-4" aria-hidden="true" />
+            </span>
+            <div className="min-w-0">
+              <p className="contact-simple-label">{t("sections.contact.phone")}</p>
+              <p className="contact-simple-value">{profile.phone}</p>
             </div>
+          </a>
 
-            <div className="mt-6 flex flex-wrap gap-2">
-              {tags.map((item) => (
-                <span key={item} className="skill-pill">
-                  {item}
-                </span>
-              ))}
+          <div className="contact-simple-row">
+            <span className="contact-simple-icon">
+              <MapPin className="h-4 w-4" aria-hidden="true" />
+            </span>
+            <div className="min-w-0">
+              <p className="contact-simple-label">{t("sections.contact.location")}</p>
+              <p className="contact-simple-value">{profile.location}</p>
             </div>
-          </article>
+          </div>
+
+          <div className="contact-simple-socials" aria-label={t("sections.contact.social")}>
+            <a href={profile.github} target="_blank" rel="noreferrer" className="contact-social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-4 w-4">
+                <path d={siGithub.path} />
+              </svg>
+              <span>GitHub</span>
+            </a>
+            <a href={profile.linkedin} target="_blank" rel="noreferrer" className="contact-social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-4 w-4">
+                <path d={linkedinPath} />
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

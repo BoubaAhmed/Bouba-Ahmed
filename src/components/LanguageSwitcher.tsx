@@ -14,8 +14,8 @@ const languages: Array<{
   label: string;
   color: string;
 }> = [
-  { code: "en", flag: "GB", label: "English", color: "#7c3aed" },
-  { code: "fr", flag: "FR", label: "Francais", color: "#0ea5e9" },
+  { code: "en", flag: "GB", label: "English", color: "var(--acid)" },
+  { code: "fr", flag: "FR", label: "Francais", color: "var(--acid-2)" },
 ];
 
 export function LanguageSwitcher({
@@ -53,7 +53,7 @@ export function LanguageSwitcher({
       </a>
 
       {open ? (
-        <div className="absolute right-0 z-30 mt-2 min-w-44 overflow-hidden rounded-lg border border-[color:color-mix(in_srgb,#c4b5fd_65%,var(--line))] bg-[var(--surface-strong)] p-2 shadow-[0_18px_50px_-28px_rgba(10,16,38,0.28)]">
+        <div className="absolute right-0 z-30 mt-2 min-w-44 overflow-hidden rounded-lg border border-[color:color-mix(in_srgb,var(--code)_65%,var(--line))] bg-[var(--surface-strong)] p-2 shadow-[0_18px_50px_-28px_rgba(var(--shadow-rgb),0.28)]">
           {languages.map((language) => (
             <a
               key={language.code}
@@ -66,8 +66,8 @@ export function LanguageSwitcher({
               className={cn(
                 "flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2.5 text-left text-sm transition",
                 currentLanguage === language.code
-                  ? "bg-[color-mix(in_srgb,#c4b5fd_18%,white)] text-[var(--text)] dark:bg-[color-mix(in_srgb,#7c3aed_18%,transparent)]"
-                  : "text-[var(--muted)] hover:bg-[color-mix(in_srgb,#c4b5fd_12%,white)] hover:text-[var(--text)] dark:hover:bg-[color-mix(in_srgb,#0ea5e9_16%,transparent)]",
+                  ? "bg-[color-mix(in_srgb,var(--code)_18%,white)] text-[var(--text)] dark:bg-[color-mix(in_srgb,var(--acid)_18%,transparent)]"
+                  : "text-[var(--muted)] hover:bg-[color-mix(in_srgb,var(--code)_12%,white)] hover:text-[var(--text)] dark:hover:bg-[color-mix(in_srgb,var(--acid-2)_16%,transparent)]",
               )}
             >
               <span className="flex items-center gap-2">

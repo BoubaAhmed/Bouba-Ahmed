@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Desktop project cover</title>
+  <desc id="desc">Default cover for desktop software projects.</desc>
+  <rect width="960" height="600" rx="34" fill="#f8fafc"/>
+  <rect x="172" y="124" width="616" height="360" rx="26" fill="#0f172a" opacity="0.88"/>
+  <rect x="204" y="164" width="552" height="278" rx="16" fill="#e5edf8"/>
+  <rect x="246" y="212" width="200" height="24" rx="12" fill="#2563eb" opacity="0.28"/>
+  <rect x="246" y="272" width="468" height="16" rx="8" fill="#0f172a" opacity="0.14"/>
+  <rect x="246" y="316" width="388" height="16" rx="8" fill="#0f172a" opacity="0.1"/>
+  <rect x="246" y="360" width="276" height="16" rx="8" fill="#0f172a" opacity="0.1"/>
+  <path d="M430 484h100l18 54H412l18-54z" fill="#0f172a" opacity="0.7"/>
+</svg>

@@ -7,7 +7,6 @@ import { Contact } from "./components/Contact";
 import { Experience } from "./components/Experience";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
-import { Journey } from "./components/Journey";
 import { NavBar } from "./components/NavBar";
 import { Profile } from "./components/Profile";
 import { ProjectDetailPage } from "./components/ProjectDetailPage";
@@ -181,7 +180,6 @@ function App() {
             educationItems={content.educationItems}
             profile={content.profile}
           />
-          <Journey />
           <Experience items={content.experienceItems} />
           <Work projects={content.homeProjects} onOpenProject={(projectId) => navigateTo(`/projects/${projectId}`)} />
           <Skills />

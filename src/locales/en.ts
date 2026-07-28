@@ -49,12 +49,15 @@ export const en = {
       languages: "Languages",
       certifications: "Certifications",
       availability: "Available",
-    },
-    journey: {
-      eyebrow: "Journey",
-      title: "Career Journey",
-      description: "A quick timeline of the key moments that shaped how I build products, learn fast, and grow as a developer.",
-      mobile: "Scroll to explore the journey",
+      snapshot: "Personality Snapshot",
+      hobbies: "Hobbies & Interests",
+      workPreferences: "Work Preferences",
+      hobbiesList: ["Football", "Cycling", "Coding", "Camping", "Fishing", "Traveling"],
+      preferences: [
+        "Remote-friendly: Comfortable collaborating across timezones",
+        "Relocation: Open to relocating for the right opportunity",
+        "Timezone: GMT+1 (Flexible working hours)",
+      ],
     },
     experience: {
       eyebrow: "Experience",
@@ -97,9 +100,8 @@ export const en = {
     certificates: {
       eyebrow: "Certificates",
       title: "Certificates",
-      description: "Verified learning and credentials, grouped three at a time for quick review.",
-      previous: "Previous certificates",
-      next: "Next certificates",
+      description: "Verified learning and credentials presented as a clean timeline.",
+      verify: "Check certificate",
     },
     contact: {
       eyebrow: "Connect",
@@ -117,30 +119,6 @@ export const en = {
       availableNow: "Currently available",
       tags: ["Freelance", "Internships", "Full-time", "Remote-friendly"],
     },
-  },
-  journey: {
-    milestones: [
-      {
-        year: "Now",
-        title: "Master's Degree",
-        description: "AI and Intelligent Systems specialization",
-      },
-      {
-        year: "2024",
-        title: "Bachelor's Degree",
-        description: "Software and web development track",
-      },
-      {
-        year: "2023",
-        title: "First Professional Build",
-        description: "Started delivering full-stack projects",
-      },
-      {
-        year: "2021",
-        title: "First Code",
-        description: "Started learning HTML, CSS, and programming basics",
-      },
-    ],
   },
   footer: {
     madeWith: "Made with",

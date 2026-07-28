@@ -49,12 +49,15 @@ export const frSite = {
       languages: "Langues",
       certifications: "Certifications",
       availability: "Disponible",
-    },
-    journey: {
-      eyebrow: "Parcours",
-      title: "Parcours Professionnel",
-      description: "Une timeline des moments qui ont construit ma facon de creer des produits, d'apprendre vite et d'evoluer comme developpeur.",
-      mobile: "Faites defiler pour voir le parcours",
+      snapshot: "Snapshot personnel",
+      hobbies: "Hobbies & interets",
+      workPreferences: "Preferences de travail",
+      hobbiesList: ["Football", "Cyclisme", "Coding", "Camping", "Peche", "Voyage"],
+      preferences: [
+        "Remote-friendly: a l'aise avec la collaboration entre fuseaux horaires",
+        "Relocalisation: ouvert a demenager pour la bonne opportunite",
+        "Fuseau horaire: GMT+1 (horaires flexibles)",
+      ],
     },
     experience: {
       eyebrow: "Experience",
@@ -97,9 +100,8 @@ export const frSite = {
     certificates: {
       eyebrow: "Certificats",
       title: "Certificats",
-      description: "Formations validees et certificats, affiches trois par trois pour une lecture rapide.",
-      previous: "Certificats precedents",
-      next: "Certificats suivants",
+      description: "Formations validees et certificats presentes dans une timeline claire.",
+      verify: "Verifier le certificat",
     },
     contact: {
       eyebrow: "Contact",
@@ -117,30 +119,6 @@ export const frSite = {
       availableNow: "Disponible actuellement",
       tags: ["Freelance", "Stages", "Temps plein", "Remote possible"],
     },
-  },
-  journey: {
-    milestones: [
-      {
-        year: "Maintenant",
-        title: "Master",
-        description: "Specialisation en IA et systemes intelligents",
-      },
-      {
-        year: "2024",
-        title: "Licence Professionnelle",
-        description: "Parcours developpement logiciel et web",
-      },
-      {
-        year: "2023",
-        title: "Premier Projet Pro",
-        description: "Debut des projets full-stack concrets",
-      },
-      {
-        year: "2021",
-        title: "Premier Code",
-        description: "Debut avec HTML, CSS et les bases du developpement",
-      },
-    ],
   },
   footer: {
     madeWith: "Cree avec",

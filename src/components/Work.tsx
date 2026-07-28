@@ -1,4 +1,4 @@
-import { BrainCircuit, ChevronLeft, ChevronRight, Cpu, Database, Globe2, Monitor } from "lucide-react";
+import { BrainCircuit, ChevronLeft, ChevronRight, Cpu, Database, FolderKanban, Globe2, Monitor } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -91,7 +91,8 @@ export function Work({ projects, onOpenProject }: WorkProps) {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="mx-auto max-w-4xl space-y-3 text-center">
-        <p className="inline-flex rounded-full border border-[color:color-mix(in_srgb,var(--acid)_32%,var(--line))] bg-[color:color-mix(in_srgb,var(--acid)_10%,transparent)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--acid)]">
+        <p className="inline-flex items-center gap-2 rounded-full border border-[color:color-mix(in_srgb,var(--acid)_32%,var(--line))] bg-[color:color-mix(in_srgb,var(--acid)_10%,transparent)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--acid)]">
+          <FolderKanban className="h-3.5 w-3.5" aria-hidden="true" />
           {t("sections.work.eyebrow")}
         </p>
         <h2 className="mx-auto max-w-4xl text-4xl font-bold leading-[1.04] tracking-[-0.045em] text-[var(--text)] md:text-5xl">
@@ -104,7 +105,7 @@ export function Work({ projects, onOpenProject }: WorkProps) {
 
       {activeGroup ? (
         <div className="project-groups mt-12">
-          <div className="project-category-tabs py-1 no-scrollbar" role="tablist" aria-label={t("projects.category")}>
+          <div className="project-category-tabs no-scrollbar" role="tablist" aria-label={t("projects.category")}>
             {groupedProjects.map((group) => {
               const isActive = group.category === activeGroup.category;
               const CategoryIcon = categoryIcons[group.category];
@@ -118,9 +119,9 @@ export function Work({ projects, onOpenProject }: WorkProps) {
                   className={`project-category-tab ${isActive ? "project-category-tab--active" : ""}`}
                   onClick={() => setActiveCategory(group.category)}
                 >
-                  <CategoryIcon className="h-4 w-4" />
+                  <CategoryIcon className="h-4 w-4" aria-hidden="true" />
                   {t(`projectCategories.${group.category}`)}
-                  <span>{group.projects.length}</span>
+                  <span className="project-category-count">{group.projects.length}</span>
                 </button>
               );
             })}

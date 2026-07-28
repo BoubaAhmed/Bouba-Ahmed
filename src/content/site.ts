@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { BookOpenCheck, BriefcaseBusiness, Globe2, Microscope, Wrench } from "lucide-react";
+import { BookOpenCheck, BriefcaseBusiness, Microscope } from "lucide-react";
 
 export type SupportedLanguage = "en" | "fr";
 export type ProjectCategoryGroup = "web" | "ai" | "electronics" | "data" | "desktop";
@@ -61,7 +61,7 @@ export type CertificateItem = {
   title: string;
   issuer: string;
   year?: string;
-  image?: string;
+  url?: string;
 };
 
 export const profile: ProfileMeta = {
@@ -80,8 +80,8 @@ export const profile: ProfileMeta = {
     "Open to full-time roles, freelance work, and product teams that need reliable engineering with an AI edge.",
   languages: [
     { name: "Arabic", level: "Native" },
-    { name: "French", level: "Professional" },
     { name: "English", level: "Professional" },
+    { name: "French", level: "Intermediate" },
   ],
   strengths: ["Full-stack delivery", "AI product thinking", "Clean UI execution", "Production deployment"],
 };
@@ -102,7 +102,8 @@ export const featuredProjects: ProjectMeta[] = [
     category: "AI platform",
     categoryGroup: "ai",
     stack: ["Django", "React", "PostgreSQL", "Redis", "Celery", "Docker"],
-    screenshots: ["/media/project-enslms-01.svg", "/media/project-enslms-02.svg"],
+    // screenshots: ["/media/project-enslms-01.svg", "/media/project-enslms-02.svg"],
+    screenshots: [],
     highlights: [
       "FSLSM-based learner profiling",
       "Recommendation features for learning paths",
@@ -130,7 +131,7 @@ export const featuredProjects: ProjectMeta[] = [
     category: "Accessibility",
     categoryGroup: "electronics",
     stack: ["React", "Flask", "Python", "Firebase", "OCR", "Raspberry Pi"],
-    screenshots: ["/media/project-reading-eye-01.svg"],
+    screenshots: [],
     highlights: [
       "OCR pipeline for document reading",
       "Text-to-speech output flow",
@@ -158,7 +159,7 @@ export const featuredProjects: ProjectMeta[] = [
     category: "Research",
     categoryGroup: "ai",
     stack: ["Python", "Bayesian Neural Networks", "Machine Learning", "Data Analysis"],
-    screenshots: ["/media/project-fraud-research-01.svg"],
+    screenshots: [],
     highlights: [
       "Model evaluation for fraud prediction",
       "Probabilistic ML framing",
@@ -184,7 +185,7 @@ export const featuredProjects: ProjectMeta[] = [
     category: "IoT",
     categoryGroup: "electronics",
     stack: ["React", "Flask", "ESP32", "Firebase", "IoT"],
-    screenshots: ["/media/project-attendance-01.svg"],
+    screenshots: [],
     highlights: [
       "Fingerprint attendance flow",
       "Connected-device architecture",
@@ -211,7 +212,7 @@ export const featuredProjects: ProjectMeta[] = [
     category: "Data engineering",
     categoryGroup: "data",
     stack: ["Kafka", "Spark", "Docker", "HDFS", "Flask"],
-    screenshots: ["/media/project-analytics-01.svg"],
+    screenshots: [],
     highlights: [
       "Streaming ingestion with Kafka",
       "Processing with Spark Streaming",
@@ -238,7 +239,7 @@ export const featuredProjects: ProjectMeta[] = [
     category: "MERN application",
     categoryGroup: "web",
     stack: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
-    screenshots: ["/media/project-smartcity-01.svg"],
+    screenshots: [],
     highlights: [
       "Citizen issue reporting",
       "MERN full-stack architecture",
@@ -265,7 +266,7 @@ export const featuredProjects: ProjectMeta[] = [
     category: "Desktop software",
     categoryGroup: "desktop",
     stack: ["Java", "JavaFX", "MySQL", "MVC", "Git"],
-    screenshots: ["/media/project-hr-system-01.svg"],
+    screenshots: [],
     highlights: [
       "Centralized HR operations",
       "Administrative certificate generation",
@@ -519,7 +520,7 @@ export const certifications: readonly CertificateItem[] = [
   { title: "Python Programming", issuer: "Cisco" },
   { title: "JavaScript Programming", issuer: "Cisco" },
   { title: "Introduction to IoT", issuer: "Cisco" },
-  { title: "Git Essentials for Developers", issuer: "Udemy" },
+  { title: "Git Essentials for Developers", issuer: "Udemy", url: "https://www.udemy.com/certificate/UC-7fd021ce-a451-4e86-9081-9f7cf9241be4/"},
   { title: "Microsoft Office Specialist - Word & Excel 2016", issuer: "Microsoft" },
 ] as const;
 
@@ -544,8 +545,8 @@ export const localizedContent = {
         "Ouvert aux postes a temps plein, au freelance et aux equipes produit qui ont besoin d'une engineering fiable avec une dimension IA.",
       languages: [
         { name: "Arabe", level: "Natif" },
-        { name: "Francais", level: "Professionnel" },
         { name: "Anglais", level: "Professionnel" },
+        { name: "Francais", level: "Intermediaire" },
       ],
       strengths: ["Livraison full-stack", "Vision produit IA", "UI propre", "Deploiement production"],
     },
@@ -619,7 +620,7 @@ export const localizedContent = {
 } as const;
 
 export const socialLinks = [
-  { id: "github", label: "GitHub", href: profile.github, icon: Globe2 },
-  { id: "linkedin", label: "LinkedIn", href: profile.linkedin, icon: BriefcaseBusiness },
-  { id: "email", label: "Email", href: `mailto:${profile.email}`, icon: Wrench },
+  { id: "github", label: "GitHub", href: profile.github },
+  { id: "linkedin", label: "LinkedIn", href: profile.linkedin },
+  { id: "email", label: "Email", href: `mailto:${profile.email}` },
 ] as const;

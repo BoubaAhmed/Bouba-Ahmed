@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import type { ProjectMeta } from "../content/site";
+import type { ProjectCategoryGroup, ProjectMeta } from "../content/site";
 
 type ProjectCardProps = {
   project: ProjectMeta;
@@ -7,17 +7,25 @@ type ProjectCardProps = {
   onOpen: (projectId: string) => void;
 };
 
+const fallbackProjectCovers: Record<ProjectCategoryGroup, string> = {
+  web: "/media/project-default-web.svg",
+  ai: "/media/project-default-ai.svg",
+  electronics: "/media/project-default-electronics.svg",
+  data: "/media/project-default-data.svg",
+  desktop: "/media/project-default-desktop.svg",
+};
+
 export function ProjectCard({
   project,
   detailLabel,
   onOpen,
 }: ProjectCardProps) {
-  const cover = project.screenshots[0];
+  const cover = project.screenshots[0] ?? fallbackProjectCovers[project.categoryGroup];
 
   return (
     <article className="project-card">
       <button type="button" onClick={() => onOpen(project.id)} className="project-card-cover" aria-label={detailLabel}>
-        {cover ? <img src={cover} alt={project.title} /> : null}
+        <img src={cover} alt={project.title} />
       </button>
 
       <div className="project-card-body">
