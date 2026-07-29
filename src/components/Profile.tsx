@@ -1,16 +1,4 @@
-import {
-  Bike,
-  CheckCircle2,
-  Code2,
-  Fish,
-  GraduationCap,
-  MapPin,
-  Plane,
-  Sparkles,
-  TentTree,
-  Trophy,
-  UserRound,
-} from "lucide-react";
+import { CheckCircle2, GraduationCap, MapPin, Sparkles, UserRound } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import type { EducationItem, ProfileMeta } from "../content/site";
 
@@ -19,11 +7,8 @@ type ProfileProps = {
   profile: ProfileMeta;
 };
 
-const hobbyIcons = [Trophy, Bike, Code2, TentTree, Fish, Plane] as const;
-
 export function Profile({ educationItems, profile }: ProfileProps) {
   const { t } = useTranslation();
-  const hobbies = t("sections.profile.hobbiesList", { returnObjects: true }) as string[];
 
   return (
     <section id="profile" className="mx-auto max-w-6xl pt-[clamp(4.5rem,8vw,6.2rem)]">
