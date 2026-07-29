@@ -2,7 +2,6 @@ import { BriefcaseBusiness, FolderKanban, House, Layers3, Mail, UserRound } from
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { BackToTop } from "./components/BackToTop";
-import { Certificates } from "./components/Certificates";
 import { Contact } from "./components/Contact";
 import { Experience } from "./components/Experience";
 import { Footer } from "./components/Footer";
@@ -49,7 +48,6 @@ function App() {
     { href: "#experience", label: t("nav.experience"), icon: BriefcaseBusiness },
     { href: "#work", label: t("nav.work"), icon: FolderKanban },
     { href: "#stack", label: t("nav.stack"), icon: Layers3 },
-    // { href: "#certificates", label: t("nav.certificates"), icon: Award },
     { href: "#contact", label: t("nav.contact"), icon: Mail },
   ], [t]);
 
@@ -182,8 +180,7 @@ function App() {
           />
           <Experience items={content.experienceItems} />
           <Work projects={content.homeProjects} onOpenProject={(projectId) => navigateTo(`/projects/${projectId}`)} />
-          <Skills />
-          <Certificates items={content.certifications} />
+          <Skills certificates={content.certifications} />
           <Contact profile={content.profile} />
         </main>
       )}

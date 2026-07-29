@@ -16,7 +16,6 @@ export const en = {
     work: "Work",
     stack: "Skills",
     experience: "Experience",
-    certificates: "Certificates",
     contact: "Contact",
   },
   hero: {
@@ -37,12 +36,12 @@ export const en = {
     work: {
       eyebrow: "Projects",
       title: "Things I've Brought to Life",
-      description: "A selection of builds that shows how I think, design, and ship real products.",
+      description: "Selected builds across web, AI, data, electronics, and desktop software, each shaped around practical problems, clear interfaces, and reliable delivery.",
     },
     profile: {
       eyebrow: "About",
       title: "The Story So Far",
-      description: "The path, training, and mindset behind the developer you see today.",
+      description: "A compact view of my background, education, languages, and personal interests, showing the person behind the engineering work.",
       education: "Education",
       experience: "Professional Experience",
       strengths: "Strengths",
@@ -51,33 +50,22 @@ export const en = {
       availability: "Available",
       snapshot: "Personality Snapshot",
       hobbies: "Hobbies & Interests",
-      workPreferences: "Work Preferences",
       hobbiesList: ["Football", "Cycling", "Coding", "Camping", "Fishing", "Traveling"],
-      preferences: [
-        "Remote-friendly: Comfortable collaborating across timezones",
-        "Relocation: Open to relocating for the right opportunity",
-        "Timezone: GMT+1 (Flexible working hours)",
-      ],
     },
     experience: {
       eyebrow: "Experience",
-      title: "Hands-On Chapters",
-      description: "A process view of recent product, research, and professional work.",
+      title: "Professional Experience",
+      description: "Recent product, research, and professional experiences presented as a practical timeline of what I built, learned, and delivered.",
     },
     stack: {
       eyebrow: "Stack",
       title: "Tools of the Trade",
-      description: "The technologies, frameworks, and systems I rely on to build with confidence.",
-      toolkit: "Developer Toolkit",
-      toolkitDescription: "A focused view of the skills I use across frontend, backend, AI, delivery, and collaboration.",
+      description: "A focused technical toolkit covering web development, AI, deployment, daily tools, and collaboration habits used in real project work.",
+      certificates: "Certificates",
       categories: {
-        frontend: {
-          label: "Frontend",
-          description: "Interfaces, responsive layouts, and browser-side product work.",
-        },
-        backend: {
-          label: "Backend",
-          description: "APIs, business logic, databases, and service integration.",
+        web: {
+          label: "Web",
+          description: "Frontend interfaces and backend systems used to build full-stack web products.",
         },
         ai_ml: {
           label: "AI/ML",
@@ -97,16 +85,10 @@ export const en = {
         },
       },
     },
-    certificates: {
-      eyebrow: "Certificates",
-      title: "Certificates",
-      description: "Verified learning and credentials presented as a clean timeline.",
-      verify: "Check certificate",
-    },
     contact: {
       eyebrow: "Connect",
       title: "Let's Build Something",
-      description: "Open to meaningful collaborations, freelance work, and product teams with ambition.",
+      description: "The fastest ways to reach me for projects, roles, collaboration, or technical discussions around building useful digital products.",
       cardTitle: "Let's connect",
       cardDescription:
         "I'm always open to discussing new projects, creative ideas, or strong opportunities where clean development and thoughtful user experience matter.",
@@ -130,12 +112,10 @@ export const en = {
       profile: "Profile",
       experience: "Experience",
       skills: "Skills",
-      certificates: "Certificates",
       contact: "Contact",
     },
   },
   projects: {
-    view: "View project",
     live: "Live demo",
     code: "Source code",
     backHome: "Back home",

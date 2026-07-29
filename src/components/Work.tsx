@@ -14,6 +14,12 @@ const categoryIcons: Record<ProjectCategoryGroup, LucideIcon> = {
   desktop: Monitor,
 };
 
+function projectHasCategory(project: ProjectMeta, category: ProjectCategoryGroup) {
+  return typeof project.categoryGroup === "string"
+    ? project.categoryGroup === category
+    : project.categoryGroup.includes(category);
+}
+
 type WorkProps = {
   projects: readonly ProjectMeta[];
   onOpenProject: (projectId: string) => void;
@@ -29,7 +35,7 @@ export function Work({ projects, onOpenProject }: WorkProps) {
       categoryOrder
         .map((category) => ({
           category,
-          projects: projects.filter((project) => project.categoryGroup === category),
+          projects: projects.filter((project) => projectHasCategory(project, category)),
         }))
         .filter((group) => group.projects.length > 0),
     [projects],
@@ -90,15 +96,15 @@ export function Work({ projects, onOpenProject }: WorkProps) {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="mx-auto max-w-4xl space-y-3 text-center">
+      <div className="mx-auto max-w-5xl space-y-3 text-center">
         <p className="inline-flex items-center gap-2 rounded-full border border-[color:color-mix(in_srgb,var(--acid)_32%,var(--line))] bg-[color:color-mix(in_srgb,var(--acid)_10%,transparent)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--acid)]">
           <FolderKanban className="h-3.5 w-3.5" aria-hidden="true" />
           {t("sections.work.eyebrow")}
         </p>
-        <h2 className="mx-auto max-w-4xl text-4xl font-bold leading-[1.04] tracking-[-0.045em] text-[var(--text)] md:text-5xl">
+        <h2 className="mx-auto max-w-5xl text-3xl font-bold leading-[1.08] tracking-[-0.04em] text-[var(--text)] md:text-4xl">
           {t("sections.work.title")}
         </h2>
-        <p className="mx-auto max-w-4xl text-base leading-8 text-[var(--muted)] md:text-lg">
+        <p className="mx-auto max-w-5xl text-base leading-8 text-[var(--muted)] md:text-lg">
           {t("sections.work.description")}
         </p>
       </div>
@@ -158,7 +164,6 @@ export function Work({ projects, onOpenProject }: WorkProps) {
                 <ProjectCard
                   key={project.id}
                   project={project}
-                  detailLabel={t("projects.view")}
                   onOpen={onOpenProject}
                 />
               ))}

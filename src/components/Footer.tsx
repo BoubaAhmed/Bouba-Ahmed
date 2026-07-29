@@ -13,7 +13,6 @@ const quickLinks = [
   { labelKey: "footer.quickLinks.profile", href: "#profile" },
   { labelKey: "footer.quickLinks.experience", href: "#experience" },
   // { labelKey: "footer.quickLinks.skills", href: "#stack" },
-  // { labelKey: "footer.quickLinks.certificates", href: "#certificates" },
   { labelKey: "footer.quickLinks.contact", href: "#contact" },
 ];
 
@@ -102,7 +101,7 @@ export function Footer({ onNavigate }: FooterProps) {
               href={`mailto:${profile.email}`}
               className="inline-flex items-center gap-2 text-sm text-[var(--muted)] transition hover:text-[var(--acid)]"
             >
-              <Mail className="h-4 w-4" />
+              {/* <Mail className="h-4 w-4" /> */}
               <span>{profile.email}</span>
             </a>
             <div className="flex justify-center gap-3 md:justify-end">
@@ -112,7 +111,7 @@ export function Footer({ onNavigate }: FooterProps) {
                   href={link.href}
                   target={link.href.startsWith("mailto:") ? undefined : "_blank"}
                   rel={link.href.startsWith("mailto:") ? undefined : "noreferrer"}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--line)] text-[var(--muted)] transition hover:border-[var(--acid)] hover:text-[var(--acid)]"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-[var(--line)] text-[var(--muted)] transition hover:border-[var(--acid)] hover:text-[var(--acid)]"
                   aria-label={link.label}
                 >
                   <FooterSocialIcon id={link.id} />

@@ -6,7 +6,6 @@ import {
   GraduationCap,
   MapPin,
   Plane,
-  Settings2,
   Sparkles,
   TentTree,
   Trophy,
@@ -25,7 +24,6 @@ const hobbyIcons = [Trophy, Bike, Code2, TentTree, Fish, Plane] as const;
 export function Profile({ educationItems, profile }: ProfileProps) {
   const { t } = useTranslation();
   const hobbies = t("sections.profile.hobbiesList", { returnObjects: true }) as string[];
-  const preferences = t("sections.profile.preferences", { returnObjects: true }) as string[];
 
   return (
     <section id="profile" className="mx-auto max-w-6xl pt-[clamp(4.5rem,8vw,6.2rem)]">
@@ -34,7 +32,7 @@ export function Profile({ educationItems, profile }: ProfileProps) {
           <UserRound className="h-3.5 w-3.5" aria-hidden="true" />
           {t("sections.profile.eyebrow")}
         </p>
-        <h2 className="mx-auto max-w-4xl text-4xl font-bold leading-[1.04] tracking-[-0.045em] text-[var(--text)] md:text-5xl">
+        <h2 className="mx-auto max-w-4xl text-3xl font-bold leading-[1.08] tracking-[-0.04em] text-[var(--text)] md:text-4xl">
           {t("sections.profile.title")}
         </h2>
         <p className="mx-auto max-w-4xl text-base leading-8 text-[var(--muted)] md:text-lg">
@@ -69,6 +67,22 @@ export function Profile({ educationItems, profile }: ProfileProps) {
               <p className="text-lg font-semibold leading-8 text-[var(--text)]">{profile.tagline}</p>
               <p className="text-base leading-8 text-[var(--muted)]">{profile.summary}</p>
             </div>
+
+            {/* <div className="profile-inline-block mt-6">
+              <p className="profile-snapshot-kicker">{t("sections.profile.hobbies")}</p>
+              <div className="profile-hobbies">
+                {hobbies.map((hobby, index) => {
+                  const Icon = hobbyIcons[index] ?? Sparkles;
+
+                  return (
+                    <span key={hobby} className="profile-hobby">
+                      <Icon className="h-4 w-4" aria-hidden="true" />
+                      {hobby}
+                    </span>
+                  );
+                })}
+              </div>
+            </div> */}
           </article>
 
           <article className="rounded-lg border border-[color:color-mix(in_srgb,var(--line)_56%,transparent)] bg-[color:color-mix(in_srgb,var(--surface)_16%,transparent)] p-4 backdrop-blur-sm">
@@ -108,35 +122,8 @@ export function Profile({ educationItems, profile }: ProfileProps) {
               </div>
             ))}
             </div>
-          </article>
-          </div>
 
-        <article className="profile-snapshot mt-6">
-          <div className="profile-snapshot-header">
-            <span className="profile-snapshot-icon">
-              <Sparkles className="h-4 w-4" aria-hidden="true" />
-            </span>
-            <h3 className="profile-snapshot-title">{t("sections.profile.snapshot")}</h3>
-          </div>
-
-          <div className="profile-snapshot-grid">
-            <div className="profile-snapshot-block">
-              <p className="profile-snapshot-kicker">{t("sections.profile.hobbies")}</p>
-              <div className="profile-hobbies">
-                {hobbies.map((hobby, index) => {
-                  const Icon = hobbyIcons[index] ?? Sparkles;
-
-                  return (
-                    <span key={hobby} className="profile-hobby">
-                      <Icon className="h-4 w-4" aria-hidden="true" />
-                      {hobby}
-                    </span>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="profile-snapshot-block">
+            {/* <div className="profile-inline-block mt-6">
               <p className="profile-snapshot-kicker">{t("sections.profile.languages")}</p>
               <div className="profile-language-list">
                 {profile.languages.map((language) => (
@@ -146,21 +133,9 @@ export function Profile({ educationItems, profile }: ProfileProps) {
                   </div>
                 ))}
               </div>
-            </div>
-
-            <div className="profile-snapshot-block">
-              <p className="profile-snapshot-kicker">{t("sections.profile.workPreferences")}</p>
-              <ul className="profile-preferences">
-                {preferences.map((preference) => (
-                  <li key={preference}>
-                    <Settings2 className="h-4 w-4" aria-hidden="true" />
-                    <span>{preference}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </div> */}
+          </article>
           </div>
-        </article>
       </div>
 
     </section>

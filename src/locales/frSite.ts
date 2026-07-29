@@ -16,7 +16,6 @@ export const frSite = {
     work: "Projets",
     stack: "Competences",
     experience: "Experience",
-    certificates: "Certificats",
     contact: "Contact",
   },
   hero: {
@@ -37,12 +36,12 @@ export const frSite = {
     work: {
       eyebrow: "Projets",
       title: "Ce Que J'ai Donne Vie",
-      description: "Une selection de projets qui montre comment je pense, concois et livre des produits concrets.",
+      description: "Une selection de projets web, IA, data, electronique et desktop, construits autour de problemes concrets, d'interfaces claires et d'une livraison fiable.",
     },
     profile: {
       eyebrow: "A propos",
       title: "L'Histoire Jusqu'ici",
-      description: "Le parcours, la formation et l'etat d'esprit du developpeur que vous voyez aujourd'hui.",
+      description: "Un apercu de mon parcours, de ma formation, de mes langues et de mes interets personnels, pour mieux comprendre la personne derriere le travail technique.",
       education: "Formation",
       experience: "Experience professionnelle",
       strengths: "Forces",
@@ -51,33 +50,22 @@ export const frSite = {
       availability: "Disponible",
       snapshot: "Snapshot personnel",
       hobbies: "Hobbies & interets",
-      workPreferences: "Preferences de travail",
       hobbiesList: ["Football", "Cyclisme", "Coding", "Camping", "Peche", "Voyage"],
-      preferences: [
-        "Remote-friendly: a l'aise avec la collaboration entre fuseaux horaires",
-        "Relocalisation: ouvert a demenager pour la bonne opportunite",
-        "Fuseau horaire: GMT+1 (horaires flexibles)",
-      ],
     },
     experience: {
       eyebrow: "Experience",
-      title: "Chapitres Concrets",
-      description: "Une vue process des experiences recentes en produit, recherche et travail professionnel.",
+      title: "Experience professionnelle",
+      description: "Des experiences produit, recherche et professionnelles recentes, presentees comme une timeline claire de ce que j'ai construit, appris et livre.",
     },
     stack: {
       eyebrow: "Stack",
       title: "Mes Outils de Travail",
-      description: "Les technologies, frameworks et systemes sur lesquels je m'appuie pour construire avec assurance.",
-      toolkit: "Boite a outils developpeur",
-      toolkitDescription: "Une vue claire des competences que j'utilise en frontend, backend, IA, livraison et collaboration.",
+      description: "Une boite a outils technique centree sur le developpement web, l'IA, le deploiement, les outils quotidiens et les habitudes de collaboration utilisees dans des projets reels.",
+      certificates: "Certificats",
       categories: {
-        frontend: {
-          label: "Frontend",
-          description: "Interfaces, layouts responsives et travail produit cote navigateur.",
-        },
-        backend: {
-          label: "Backend",
-          description: "APIs, logique metier, bases de donnees et integration de services.",
+        web: {
+          label: "Web",
+          description: "Interfaces frontend et systemes backend pour construire des produits web full-stack.",
         },
         ai_ml: {
           label: "IA/ML",
@@ -97,16 +85,10 @@ export const frSite = {
         },
       },
     },
-    certificates: {
-      eyebrow: "Certificats",
-      title: "Certificats",
-      description: "Formations validees et certificats presentes dans une timeline claire.",
-      verify: "Verifier le certificat",
-    },
     contact: {
       eyebrow: "Contact",
       title: "Construisons Quelque Chose",
-      description: "Ouvert aux collaborations serieuses, au freelance et aux equipes produit ambitieuses.",
+      description: "Les moyens les plus directs pour me contacter concernant un projet, un poste, une collaboration ou une discussion technique autour de produits utiles.",
       cardTitle: "Restons en contact",
       cardDescription:
         "Je suis ouvert aux nouveaux projets, aux idees creatives et aux opportunites solides ou le developpement propre et l'experience utilisateur comptent.",
@@ -130,12 +112,10 @@ export const frSite = {
       profile: "Profil",
       experience: "Experience",
       skills: "Competences",
-      certificates: "Certificats",
       contact: "Contact",
     },
   },
   projects: {
-    view: "Voir le projet",
     live: "Demo live",
     code: "Code source",
     backHome: "Retour a l'accueil",

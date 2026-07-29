@@ -1,9 +1,7 @@
-import { ArrowUpRight } from "lucide-react";
 import type { ProjectCategoryGroup, ProjectMeta } from "../content/site";
 
 type ProjectCardProps = {
   project: ProjectMeta;
-  detailLabel: string;
   onOpen: (projectId: string) => void;
 };
 
@@ -15,18 +13,21 @@ const fallbackProjectCovers: Record<ProjectCategoryGroup, string> = {
   desktop: "/media/project-default-desktop.svg",
 };
 
+function getPrimaryCategory(project: ProjectMeta): ProjectCategoryGroup {
+  return typeof project.categoryGroup === "string" ? project.categoryGroup : project.categoryGroup[0];
+}
+
 export function ProjectCard({
   project,
-  detailLabel,
   onOpen,
 }: ProjectCardProps) {
-  const cover = project.screenshots[0] ?? fallbackProjectCovers[project.categoryGroup];
+  const cover = project.screenshots[0] ?? fallbackProjectCovers[getPrimaryCategory(project)];
 
   return (
-    <article className="project-card">
-      <button type="button" onClick={() => onOpen(project.id)} className="project-card-cover" aria-label={detailLabel}>
+    <button type="button" onClick={() => onOpen(project.id)} className="project-card" aria-label={project.title}>
+      <span className="project-card-cover">
         <img src={cover} alt={project.title} />
-      </button>
+      </span>
 
       <div className="project-card-body">
         <div className="flex flex-wrap items-center gap-2 text-sm text-[var(--muted)]">
@@ -39,21 +40,12 @@ export function ProjectCard({
       </div>
 
       <div className="project-card-footer">
-        <button
-          type="button"
-          onClick={() => onOpen(project.id)}
-          className="btn-secondary"
-        >
-          {detailLabel}
-          <ArrowUpRight className="h-4 w-4" />
-        </button>
-
         <div className="project-card-stack">
           {project.stack.slice(0, 3).map((item) => (
             <span key={item}>{item}</span>
           ))}
         </div>
       </div>
-    </article>
+    </button>
   );
 }

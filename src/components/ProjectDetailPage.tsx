@@ -61,7 +61,7 @@ export function ProjectDetailPage({
         </button>
 
         <div className="mx-auto max-w-3xl space-y-3 text-center">
-          <h2 className="mx-auto max-w-4xl text-4xl font-bold leading-[1.04] tracking-[-0.045em] text-[var(--text)] md:text-5xl">
+          <h2 className="mx-auto max-w-4xl text-3xl font-bold leading-[1.08] tracking-[-0.04em] text-[var(--text)] md:text-4xl">
             {project.title}
           </h2>
           <p className="mx-auto max-w-2xl text-base leading-8 text-[var(--muted)] md:text-lg">{project.detail}</p>
